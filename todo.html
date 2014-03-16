@@ -1,27 +1,39 @@
 <!-- [TWO] tell page to call my app -->
-<html ng-app="helloDoa">
+<html ng-app="toDoList">
 
 	<head>
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<!-- [FOUR] set up controller -->
+	<!-- [THREE] set up controller -->
 	<body ng-controller="IndexCtrl">
 		
-		<!-- BODY -->	
-		<!-- [THREE] create content & input -->
-		<div>hello {{world}}</div><input ng-model="world" />		
+		<!-- BODY -->
+		<!-- [FIVE] write content to display, use directives here -->
+		<ul>
+			<li ng-repeat="items in todos" >
+				<input ng-model="item.todo" />
+			</li>
+		</ul>
+		<div ng-click="addTodo()" class="positive">Add Todo</div>
 
 		<!--  SCRIPTS -->
 
 			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" ></script>
 			<script>
 				// [ONE] declaring new angular module
-				var app = angular.module('helloDoa',[]);
+				var app = angular.module('toDoList',[]);
 
-				// [FIVE] write controller, add scope as dependency
+				// [FOUR] write controller, add scope as dependency, control functions in body here
 				app.controller('IndexCtrl',function($scope){
-					// [SIX] call on scope inside
-					$scope.world="world";
+					$scope.todos = [
+						{todo: "Find the Spiritual Stones"},
+						{todo: "Find the Seven Sages"},
+						{todo: "Save Princess Zelda"}
+					]
+
+					$scope.addTodo = function(){
+						$scope.todos.push({})
+					}
 				});
 
 			</script>
