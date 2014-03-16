@@ -1,0 +1,30 @@
+<!-- [TWO] tell page to call my app -->
+<html ng-app="helloDoa">
+
+	<head>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<!-- [FOUR] set up controller -->
+	<body ng-controller="IndexCtrl">
+		
+		<!-- BODY -->	
+		<!-- [THREE] create content & input -->
+		<div>hello {{world}}</div><input ng-model="world" />		
+
+		<!--  SCRIPTS -->
+
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" ></script>
+			<script>
+				// [ONE] declaring new angular module
+				var app = angular.module('helloDoa',[]);
+
+				// [FIVE] write controller, add scope as dependency
+				app.controller('IndexCtrl',function($scope){
+					// [SIX] call on scope inside
+					$scope.world="world";
+				});
+
+			</script>
+	</body>
+
+</html>
